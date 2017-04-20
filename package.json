@@ -1,0 +1,28 @@
+{
+  "name": "BIDi-Watson",
+  "version": "0.0.1",
+  "private": true,
+  "main": "server.js",
+  "author": "Watson",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "gulp server:watch"
+  },
+  "dependencies": {
+    "body-parser": "1.15.1",
+    "compression": "1.6.2",
+    "dotenv": "^2.0.0",
+    "express": "4.13.4",
+    "google-translate-api": "^2.2.2",
+    "request": "^2.72.0",
+    "watson-developer-cloud": "^1.12.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^0.7.1",
+    "gulp-clean-css": "2.0.7",
+    "gulp-size": "^1.1.0",
+    "gulp-useref": "^3.0.8",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="copyright" content="Copyright © 2016">
+    <meta name="description" content="IBM Watson Converstion- BIDi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="IBM Watson Converstion- BIDi" />
+
+    <title>IBM Watson Converstion- BIDi</title> 
+
+    
+     <!-- vendor css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstro.css">  
+     <!-- vendor css -->
+
+    <!-- build:css css/main.min.css -->
+
+     <link rel="stylesheet" type="text/css" href="css/main.css">  
+    <link rel="stylesheet" type="text/css" href="css/conversation.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css"> 
+    <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
+    <!-- endbuild -->
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+ 
+       
+</head>
+<body  class="bodyclass">
+    <!-- Fixed navbar -->
+<nav class="navbar navbar-inverse" style="background-color: #999;border-color: #999;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"  >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"><img alt=""  class="img-responsive" style="width: 200px;" src="images/bid-logo.jpg"  ></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+ 
+      <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
+               <form class="navbar-form navbar-left">
+                <div class="dropdown">
+                <button  class="btn btn-primary dropdown-toggle"  style="width: 200px;background-color: #fff; border-color: #fff;color:#000" type="button" id="languagebutton" data-toggle="dropdown">English
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);" class="selectlang" id="en">English</a></li>
+                    <li><a href="javascript:void(0);" class="selectlang" id="es">Spanish</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:void(0);" class="selectlang" id="pt">Portuguese</a></li>
+                </ul>
+                 </div>
+                </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- Begin page content -->
+  
+
+   
+
+<div class="container" style="padding: 0px 15px 0;">
+    <div class="row"  >
+     <div class="col-lg-8 end"  >
+            
+             <div class="panel panel-primary">
+              <div class="panel-heading"  style="background-color: #999;border-color: #999" >
+              <h3 class="panel-title" id="recentrequest" align="center" style="color: #fff;">BIDi Conversation</h3>
+              </div>
+              <div class="panel-body" style="text-align:center;height:390px;overflow-y:scroll;">
+                    <div id="chat-scroll-wrapper">
+                    <ul id="chat-flow" class="media-list" style="max-height: 38.625rem"></ul>
+                    </div>
+              </div>
+              
+            </div>   
+
+
+        </div>
+          <div class="col-lg-4 end"  >
+            <div  id="done"   class="panel panel-primary" >
+              <div class="panel-heading" style="background-color: #999;border-color: #999">
+              <h3 class="panel-title" id="result" align="center" style="color: #fff;" >RESULT</h3>
+              </div>
+              <div  class="panel-body"    style="text-align:center;height:390px;overflow-y:scroll;">
+                <ul class="media-list" id="resultlist"></ul>
+              </div>
+            </div>
+        </div> 
+  
+         
+           <div class="col-lg-12">
+          
+           <div class="chatUi">
+                            <div data-bootstro-title="Have Questions ?" data-bootstro-content="You can ask questions here."     data-bootstro-step="4" id="input-wrapper" class="responsive-columns-wrapper bootstro">
+                            <div id="input-mic-holder">
+                            <div ><a href="javascript:void(0);" style="color: #00b4a0"> <i class="fa fa-envelope faa-shake animated-hover fa-lg"></i>&nbsp;</a></div>
+                            </div>
+                            <label for="user-input" class="input-outline responsive-column">
+                            <input id="user-input" type="text" placeholder="Type something, e.g. “Need help with energy project">
+                            </label>
+                            </div>
+                            </div>    
+            </div> 
+           
+    </div>
+</div>
+   
+       <footer class="footer" style="background-color: #555;border-color: #555">
+      <div class="container">
+       <div class="col-lg-6" align="left">
+        <p class="text-muted" style="color:#fff;">C 2016 Inter-American Development Bank.</p>
+        </div>
+        <div class="col-lg-6" align="right">
+          <p class="text-muted" style="color: #fff">Powered By IBM Watson.</p>
+          </div>
+      </div>
+
+    </footer>
+   
+    <!-- build:js vendor.min.js -->
+     <script src="ibm/jquery.js"></script> 
+     <script src="ibm/bootstrap.js"></script>
+     <script src="ibm/bootstro.js"></script>
+    <!-- endbuild -->
+    <!-- build:js dashboard.min.js -->
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/tooltip-dialogs.js"></script> 
+    <script src="js/conversation.js"></script>
+    <script src="js/conversationResponse.js"></script>
+     <script src="js/global.js"></script>   
+     <!-- endbuild -->
+
+      <script>
+      var language='en';
+      var sectors;
+      var country;
+     </script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="copyright" content="Copyright © 2016">
+    <meta name="description" content="IBM Watson Converstion- BIDi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="IBM Watson Converstion- BIDi" />
+
+    <title>IBM Watson Converstion- BIDi</title> 
+
+    
+     <!-- vendor css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstro.css">  
+     <!-- vendor css -->
+
+    <link rel="stylesheet" href="css/main.min.css">
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <style type="text/css">
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #004d72;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #fff;
+
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
+       
+</head>
+<body  class="bodyclass">
+
+
+<div id="mySidenav" class="sidenav" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <a href="javascript:void(0)"><b>Please note that only the following sectors are supported in this PoC version of BIDi</a></b></li>
+  
+  <a href="javascript:void(0)">1. Water</a>
+  <a href="javascript:void(0)">2. Transportation</a>
+  <a href="javascript:void(0)">3. Energy</a>
+
+  <a href="javascript:void(0)">Also note that the current PoC version of BIDi only answers specific questions about Subject Matter Experts (SMEs) in the supported sectors</a>
+
+  
+  <a href="javascript:void(0)" ><b>Sample Questions are:</b></a>
+
+  <a href="javascript:void(0)" onclick="getquestion('I am looking for person who worked in water projects in Brazil')">1. I am looking for person who worked in water projects in Brazil
+</a>
+    <a href="javascript:void(0)" onclick="getquestion('I am looking for some SME from Bolivia')">2. I am looking for some SME from Bolivia</a>
+    <a href="javascript:void(0)" onclick="getquestion('Give me list of SME from Energy Sector')">3. Give me list of SME from Energy Sector</a>
+
+  <a href="javascript:void(0)" onclick="getquestion('Can you help me to find SME in energy sector from Mexico?')">4. Can you help me to find SME in energy sector from Mexico?</a>
+  <a href="javascript:void(0)" onclick="getquestion('Transport sector in Peru')">5. Transport sector in Peru</a>
+
+</div>
+    <!-- Fixed navbar -->
+<nav class="navbar navbar-inverse topnavbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"  >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"><img alt=""  class="img-responsive" style="width: 200px;" src="images/bid-logo.jpg"  ></a>
+    </div>
+
+      
+    <div class="collapse navbar-collapse" id="myNavbar">
+    
+      <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
+              <li>
+               <form class="navbar-form navbar-left">
+                <div class="dropdown">
+                <button  class="btn btn-primary dropdown-toggle"  style="width: 200px;background-color: #004d72; border-color: #004d72;color:#fff;font-weight:700;" type="button" id="languagebutton" data-toggle="dropdown">English
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);" class="selectlang" id="en">English</a></li>
+                    <li><a href="javascript:void(0);" class="selectlang" id="es">Spanish</a></li>
+                    
+                    <li class="divider"></li>
+                    <li><a href="javascript:void(0);" class="selectlang" id="pt">Portuguese</a></li>
+                </ul>
+                 </div>
+
+                </form>
+                </li>
+                <li>
+                <button  class="btn btn-primary"  id="questionbutton" style="margin-top: 8px;width:90px;background-color: #004d72; border-color: #004d72;color:#fff;font-weight:700;" type="button"  onclick="openNav()" >Help
+                 </button>
+                </li>
+                 
+               <!--  <span style="font-size:30px;cursor:pointer" onclick="openNav()">Help</span> -->
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+    <!-- Begin page content -->
+  
+
+   
+<input type="hidden" id="deperment" value="DEPARTMENT">
+<input type="hidden" id="location" value="LOCATION">
+<input type="hidden" id="project" value="Project Title">
+<input type="hidden" id="sector" value="Sector">
+<div class="container" style="padding: 0px 15px 0;">
+    <div class="row"  >
+   
+     <div class="col-lg-12 end" id="resultleft">
+            
+             <div class="panel panel-primary">
+              <div class="panel-heading panalHead" >
+              <h3 class="panel-title" id="recentrequest" align="center" style="color: #fff;">BIDi Conversation</h3>
+              </div>
+              <div class="panel-body rvdpanel" style="height:390px;">
+                    <div id="chat-scroll-wrapper">
+                    <ul id="chat-flow" class="media-list" style="max-height:36.625rem"></ul>
+                    </div>
+              </div>
+              
+            </div>   
+
+
+        </div>
+          <div class="col-lg-4 end hidden" id="resultright">
+          <button class="close" id="right-close-icon" type="button" data-dismiss="modal" aria-label="Close">
+              <i class="fa fa-window-close" aria-hidden="true"></i>
+              <span class="close"></span>
+            </button>
+            
+            <div  id="done"   class="panel panel-primary" >
+              <div class="panel-heading panalHead">
+              <h3 class="panel-title" id="result" align="center" style="color: #fff;" >RESULT</h3>
+              </div>
+              <div  class="panel-body"    style="text-align:center;height:390px;overflow-y:scroll;">
+                <ul class="media-list" id="resultlist"></ul>
+              </div>
+            </div>
+        </div> 
+  
+         
+           <div class="col-lg-12">
+          
+           <div class="chatUi">
+                            <div data-bootstro-title="Have Questions ?" data-bootstro-content="You can ask questions here."     data-bootstro-step="4" id="input-wrapper" class="responsive-columns-wrapper bootstro">
+                            <div id="input-mic-holder">
+                            <div ><a href="javascript:void(0);" style="color: #999999"> <i class="fa fa-envelope faa-shake animated-hover fa-lg"></i>&nbsp;</a></div>
+                            </div>
+                            <label for="user-input" class="input-outline responsive-column">
+ 
+                            <input id="user-input" type="text" placeholder="Ask question here">
+                            </label>
+                            </div>
+                            </div>    
+            </div> 
+           
+    </div>
+</div>
+   
+       <footer class="footer" style="background-color: #555;border-color: #555">
+      <div class="container">
+       <div class="col-lg-6" align="left">
+        <p class="text-muted" style="color:#fff;">&copy; 2017 Inter-American Development Bank.</p>
+        </div>
+        <div class="col-lg-6" align="right">
+          <p class="text-muted" style="color: #fff">Powered By IBM Watson.</p>
+          </div>
+      </div>
+
+    </footer>
+   
+    <script src="vendor.min.js"></script>
+    <script src="dashboard.min.js"></script>
+
+      <script>
+      var language='en';
+      var sectors;
+      var country;
+     </script>
+    
+     
+</body>
+
+</html>

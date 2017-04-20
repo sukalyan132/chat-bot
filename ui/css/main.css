@@ -1,0 +1,29 @@
+#svg_canvas,.overlay{position:absolute;height:100%}
+.bodyclass{font-family:Verdana;background-image:url(../images/dashboard.jpg);background-color:#2d3331}
+.overlay{width:100%;margin:auto;overflow:hidden}
+.between-overlays{z-index:50!important}
+.hide{display:none!important}
+ 
+.close{padding:.625rem;cursor:pointer;width:1.875rem;outline:0}
+.close:hover{animation:hover .2s 1 ease-out;animation-fill-mode:forwards}
+@keyframes hover{100%{transform:scale(1.1)}}
+.responsive-columns-wrapper{display:-ms-flexbox;display:-webkit-flex;display:flex;flex-direction:row;-ms-display:flex;-ms-flex-direction:row}
+.responsive-column{-webkit-flex:1;-ms-flex:1;flex:1;overflow:auto}
+.pre-bar::before{border-left:solid .25rem #9E4CE6;border-radius:.25rem;content:"";margin-right:.4375rem;margin-left:-.625rem}
+#svg_wrapper{margin:auto;overflow:hidden;position:relative;min-width:325px;max-width:1100px}
+#svg_size{font-size:0;position:relative;height:0;width:100%;padding:0;padding-bottom:calc(100% * 704 / 1024)}
+#svg_canvas{width:100%;left:0;top:0}.nav_active{animation:nav .8s infinite linear}@keyframes nav{100%{fill:green}}
+
+#chat-flow {
+    max-height: 38.625rem
+}
+
+.hrclass
+{
+	padding: 0px !important;
+	margin:0px !important;
+}
+#chat-flow {
+    max-height: 38.625rem
+}
+
